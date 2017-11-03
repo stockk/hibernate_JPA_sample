@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+    <persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> <!--здесь мы говорим какой драйвер использовать для работы с базой данных;-->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/firstdb"/><!--тут указываем URL к базе;-->
+            <property name="hibernate.connection.username" value="user"/><!--имя пользователя этой базы;-->
+            <property name="hibernate.connection.password" value="5555"/><!-- и его пароль;-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/><!-- тут мы устанавливаем диалект текущей БД, он дает возможность использовать возможность генерации ключей, он автоматизирует всю эту работу;-->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/><!-- тут статус работы JPA:-->
+
+            <!--update — база будет просто обновлять свою структуру;-->
+            <!--validate — проверяет структуру базы но не вносит изменения;-->
+            <!--create — создает таблицы, но уничтожает предыдущие данные;-->
+            <!--create-drop — создает таблицы в начале сеанса и удаляет их по окончанию сеанса.-->
+
+        </properties>
+    </persistence-unit>
+</persistence>
